@@ -28,14 +28,16 @@ module.exports = grammar({
 
       order: $ => seq('order=',
                       $.column,
-                      optional($.ordering),
+                      optional(seq('.',
+                                   $.ordering)),
                       repeat(seq(',',
                                   $.column,
-                                  optional($.ordering)))),
+                                  optional(seq('.',
+                                           $.ordering))))),
 
 
-      ordering: $ => choice('.desc',
-                            '.asc'),
+      ordering: $ => choice('desc',
+                            'asc'),
 
       filter: $ => choice($.simple_filter,
                           $.special_filter),
@@ -62,6 +64,7 @@ module.exports = grammar({
       simple_filter: $ => seq($.column,
                               '=',
                               $.operator,
+                              '.',
                               $.value),
 
       operator: $ => choice($.eq,
@@ -80,15 +83,15 @@ module.exports = grammar({
       offset: $ => seq('offset=',
                        $.NUMBER),
 
-      eq: $ => 'eq.',
-      gt: $ => 'gt.',
-      lt: $ => 'lt.',
-      gte: $ => 'gte.',
-      lte: $ => 'lte.',
-      like: $ => 'like.',
-      ilike: $ => 'ilike.',
-      is: $ => 'is.',
-      neq: $ => 'neq.',
+      eq: $ => 'eq',
+      gt: $ => 'gt',
+      lt: $ => 'lt',
+      gte: $ => 'gte',
+      lte: $ => 'lte',
+      like: $ => 'like',
+      ilike: $ => 'ilike',
+      is: $ => 'is',
+      neq: $ => 'neq',
 
       table: $ => $.STRING,
       column: $ => $.STRING,
