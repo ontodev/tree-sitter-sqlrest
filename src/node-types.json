@@ -1,0 +1,451 @@
+[
+  {
+    "type": "QUOTED_STRING",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "column",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "STRING",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "part",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "filter",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "simple_filter",
+          "named": true
+        },
+        {
+          "type": "special_filter",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "in",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "column",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
+          "type": "list_of_strings",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "limit",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "NUMBER",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "STRING_NO_DOUBLE_QUOTES",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "list_of_strings",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "QUOTED_STRING",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "offset",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "NUMBER",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "operator",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "eq",
+          "named": true
+        },
+        {
+          "type": "gt",
+          "named": true
+        },
+        {
+          "type": "gte",
+          "named": true
+        },
+        {
+          "type": "ilike",
+          "named": true
+        },
+        {
+          "type": "is",
+          "named": true
+        },
+        {
+          "type": "like",
+          "named": true
+        },
+        {
+          "type": "lt",
+          "named": true
+        },
+        {
+          "type": "lte",
+          "named": true
+        },
+        {
+          "type": "neq",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "order",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "column",
+          "named": true
+        },
+        {
+          "type": "ordering",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "ordering",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "part",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "filter",
+          "named": true
+        },
+        {
+          "type": "limit",
+          "named": true
+        },
+        {
+          "type": "offset",
+          "named": true
+        },
+        {
+          "type": "order",
+          "named": true
+        },
+        {
+          "type": "select",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "query",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "table",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "select",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "column",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "simple_filter",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "column",
+          "named": true
+        },
+        {
+          "type": "operator",
+          "named": true
+        },
+        {
+          "type": "value",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "special_filter",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "in",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "table",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "STRING",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "value",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "STRING",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "\"",
+    "named": false
+  },
+  {
+    "type": "&",
+    "named": false
+  },
+  {
+    "type": "(",
+    "named": false
+  },
+  {
+    "type": ")",
+    "named": false
+  },
+  {
+    "type": ",",
+    "named": false
+  },
+  {
+    "type": ".",
+    "named": false
+  },
+  {
+    "type": "=",
+    "named": false
+  },
+  {
+    "type": "=in.",
+    "named": false
+  },
+  {
+    "type": "?",
+    "named": false
+  },
+  {
+    "type": "NUMBER",
+    "named": true
+  },
+  {
+    "type": "STRING",
+    "named": true
+  },
+  {
+    "type": "STRING_NO_DOUBLE_QUOTES",
+    "named": true
+  },
+  {
+    "type": "asc",
+    "named": false
+  },
+  {
+    "type": "desc",
+    "named": false
+  },
+  {
+    "type": "eq",
+    "named": true
+  },
+  {
+    "type": "gt",
+    "named": true
+  },
+  {
+    "type": "gte",
+    "named": true
+  },
+  {
+    "type": "ilike",
+    "named": true
+  },
+  {
+    "type": "is",
+    "named": true
+  },
+  {
+    "type": "like",
+    "named": true
+  },
+  {
+    "type": "limit=",
+    "named": false
+  },
+  {
+    "type": "lt",
+    "named": true
+  },
+  {
+    "type": "lte",
+    "named": true
+  },
+  {
+    "type": "neq",
+    "named": true
+  },
+  {
+    "type": "offset=",
+    "named": false
+  },
+  {
+    "type": "order=",
+    "named": false
+  },
+  {
+    "type": "select=",
+    "named": false
+  }
+]
