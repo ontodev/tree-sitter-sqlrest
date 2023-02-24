@@ -23,10 +23,6 @@
       "required": true,
       "types": [
         {
-          "type": "DOUBLE_QUOTED_STRING",
-          "named": true
-        },
-        {
           "type": "STRING",
           "named": true
         }
@@ -110,11 +106,7 @@
       "required": true,
       "types": [
         {
-          "type": "DOUBLE_QUOTED_STRING",
-          "named": true
-        },
-        {
-          "type": "STRING",
+          "type": "value",
           "named": true
         }
       ]
@@ -352,10 +344,6 @@
       "multiple": false,
       "required": true,
       "types": [
-        {
-          "type": "DOUBLE_QUOTED_STRING",
-          "named": true
-        },
         {
           "type": "STRING",
           "named": true

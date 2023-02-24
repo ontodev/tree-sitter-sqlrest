@@ -54,11 +54,9 @@ module.exports = grammar({
                        $.list),
 
       list: $ => seq('(',
-                     choice($.STRING,
-                            $.DOUBLE_QUOTED_STRING),
+                     $.value,
                      repeat(seq(',',
-                                choice($.STRING,
-                                       $.DOUBLE_QUOTED_STRING),
+                                $.value,
                                 ')'))),
 
       simple_filter: $ => seq($.column,
@@ -99,10 +97,8 @@ module.exports = grammar({
       offset: $ => seq('offset=',
                        $.NUMBER),
 
-      table: $ => choice($.STRING,
-                         $.DOUBLE_QUOTED_STRING),
-      column: $ => choice($.STRING,
-                          $.DOUBLE_QUOTED_STRING),
+      table: $ => choice($.STRING),
+      column: $ => choice($.STRING),
       value: $ => choice($.STRING,
                          $.DOUBLE_QUOTED_STRING),
 
