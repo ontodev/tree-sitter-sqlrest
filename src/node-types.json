@@ -1,6 +1,6 @@
 [
   {
-    "type": "DOUBLE_QUOTED_STRING",
+    "type": "DOUBLE_QUOTED_VALUE_STRING",
     "named": true,
     "fields": {},
     "children": {
@@ -8,7 +8,7 @@
       "required": true,
       "types": [
         {
-          "type": "STRING",
+          "type": "VALUE_STRING",
           "named": true
         }
       ]
@@ -360,7 +360,7 @@
       "required": true,
       "types": [
         {
-          "type": "DOUBLE_QUOTED_STRING",
+          "type": "DOUBLE_QUOTED_VALUE_STRING",
           "named": true
         },
         {
@@ -416,6 +416,10 @@
   },
   {
     "type": "STRING",
+    "named": true
+  },
+  {
+    "type": "VALUE_STRING",
     "named": true
   },
   {

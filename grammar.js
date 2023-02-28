@@ -97,15 +97,19 @@ module.exports = grammar({
       offset: $ => seq('offset=',
                        $.NUMBER),
 
-      table: $ => choice($.STRING),
-      column: $ => choice($.STRING),
+      table: $ => $.STRING,
+      column: $ => $.STRING,
       value: $ => choice($.STRING,
-                         $.DOUBLE_QUOTED_STRING),
+                         $.DOUBLE_QUOTED_VALUE_STRING),
 
-      STRING: $ => token.immediate(/[A-Za-z0-9:_%*]+/),
-      NUMBER: $ => token.immediate(/[0-9]+/),
+      STRING: $ => token.immediate(/[A-Za-z0-9_* ]+/),
       DOUBLE_QUOTED_STRING: $ => seq("\"",
                                      $.STRING,
                                      "\""),
+      VALUE_STRING: $ => token.immediate(/[A-Za-z0-9_* :,\.\(\)]+/),
+      DOUBLE_QUOTED_VALUE_STRING: $ => seq("\"",
+                                           $.VALUE_STRING,
+                                           "\""),
+      NUMBER: $ => token.immediate(/[0-9]+/),
   }
 });
