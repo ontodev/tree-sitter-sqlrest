@@ -464,7 +464,7 @@
       "type": "IMMEDIATE_TOKEN",
       "content": {
         "type": "PATTERN",
-        "value": "[A-Za-z0-9_* ]+"
+        "value": "[A-Za-z0-9_ ]+"
       }
     },
     "DOUBLE_QUOTED_STRING": {
@@ -488,7 +488,7 @@
       "type": "IMMEDIATE_TOKEN",
       "content": {
         "type": "PATTERN",
-        "value": "[A-Za-z0-9_* :,\\.\\(\\)]+"
+        "value": "[A-Za-z0-9_ :,\\.\\(\\)]+"
       }
     },
     "DOUBLE_QUOTED_VALUE_STRING": {
