@@ -28,7 +28,9 @@ module.exports = grammar({
 
       optionally_aliased_column: $ => seq(optional(seq($.alias,
                                                        ':')),
-                                          $.column),
+                                          $.column,
+                                          optional(seq('::',
+                                                       $.cast))),
 
       order: $ => seq('order=',
                       $.column,
@@ -104,6 +106,7 @@ module.exports = grammar({
       table: $ => $.STRING,
       column: $ => $.STRING,
       alias: $ => $.STRING,
+      cast: $ => $.STRING,
       value: $ => choice($.STRING,
                          $.DOUBLE_QUOTED_VALUE_STRING),
 
