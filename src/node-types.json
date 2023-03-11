@@ -15,6 +15,21 @@
     }
   },
   {
+    "type": "alias",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "STRING",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "column",
     "named": true,
     "fields": {},
@@ -206,6 +221,25 @@
     }
   },
   {
+    "type": "optionally_aliased_column",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "alias",
+          "named": true
+        },
+        {
+          "type": "column",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "order",
     "named": true,
     "fields": {},
@@ -288,7 +322,7 @@
       "required": true,
       "types": [
         {
-          "type": "column",
+          "type": "optionally_aliased_column",
           "named": true
         }
       ]
@@ -392,6 +426,10 @@
   },
   {
     "type": ".",
+    "named": false
+  },
+  {
+    "type": ":",
     "named": false
   },
   {

@@ -22,9 +22,13 @@ module.exports = grammar({
                         $.offset), 
 
       select: $ => seq('select=',
-                       $.column,
+                       $.optionally_aliased_column,
                        repeat(seq(',',
-                                  $.column))),
+                                  $.optionally_aliased_column))),
+
+      optionally_aliased_column: $ => seq(optional(seq($.alias,
+                                                       ':')),
+                                          $.column),
 
       order: $ => seq('order=',
                       $.column,
@@ -99,6 +103,7 @@ module.exports = grammar({
 
       table: $ => $.STRING,
       column: $ => $.STRING,
+      alias: $ => $.STRING,
       value: $ => choice($.STRING,
                          $.DOUBLE_QUOTED_VALUE_STRING),
 
