@@ -314,7 +314,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "value"
+          "name": "normal_value"
         },
         {
           "type": "REPEAT",
@@ -327,7 +327,7 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "value"
+                "name": "normal_value"
               },
               {
                 "type": "STRING",
@@ -350,20 +350,47 @@
           "value": "="
         },
         {
-          "type": "SYMBOL",
-          "name": "operator"
-        },
-        {
-          "type": "STRING",
-          "value": "."
-        },
-        {
-          "type": "SYMBOL",
-          "name": "value"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "normal_operator"
+                },
+                {
+                  "type": "STRING",
+                  "value": "."
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "normal_value"
+                }
+              ]
+            },
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "like_operator"
+                },
+                {
+                  "type": "STRING",
+                  "value": "."
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "like_value"
+                }
+              ]
+            }
+          ]
         }
       ]
     },
-    "operator": {
+    "normal_operator": {
       "type": "CHOICE",
       "members": [
         {
@@ -392,6 +419,19 @@
         },
         {
           "type": "SYMBOL",
+          "name": "is"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "not_is"
+        }
+      ]
+    },
+    "like_operator": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
           "name": "like"
         },
         {
@@ -405,14 +445,6 @@
         {
           "type": "SYMBOL",
           "name": "not_ilike"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "is"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "not_is"
         }
       ]
     },
@@ -506,7 +538,7 @@
       "type": "SYMBOL",
       "name": "STRING"
     },
-    "value": {
+    "normal_value": {
       "type": "CHOICE",
       "members": [
         {
@@ -515,7 +547,20 @@
         },
         {
           "type": "SYMBOL",
-          "name": "DOUBLE_QUOTED_VALUE_STRING"
+          "name": "DOUBLE_QUOTED_NORMAL_VALUE"
+        }
+      ]
+    },
+    "like_value": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "STRING_WITH_WILDCARDS"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "DOUBLE_QUOTED_LIKE_VALUE"
         }
       ]
     },
@@ -524,6 +569,13 @@
       "content": {
         "type": "PATTERN",
         "value": "[A-Za-z0-9_ ]+"
+      }
+    },
+    "STRING_WITH_WILDCARDS": {
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "[A-Za-z0-9_* ]+"
       }
     },
     "DOUBLE_QUOTED_STRING": {
@@ -543,14 +595,7 @@
         }
       ]
     },
-    "VALUE_STRING": {
-      "type": "IMMEDIATE_TOKEN",
-      "content": {
-        "type": "PATTERN",
-        "value": "[A-Za-z0-9_ :,\\.\\(\\)]+"
-      }
-    },
-    "DOUBLE_QUOTED_VALUE_STRING": {
+    "DOUBLE_QUOTED_NORMAL_VALUE": {
       "type": "SEQ",
       "members": [
         {
@@ -558,8 +603,31 @@
           "value": "\""
         },
         {
-          "type": "SYMBOL",
-          "name": "VALUE_STRING"
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "PATTERN",
+            "value": "[A-Za-z0-9_ :,\\.\\(\\)]+"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "\""
+        }
+      ]
+    },
+    "DOUBLE_QUOTED_LIKE_VALUE": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "\""
+        },
+        {
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "PATTERN",
+            "value": "[A-Za-z0-9_* :,\\.\\(\\)]+"
+          }
         },
         {
           "type": "STRING",
