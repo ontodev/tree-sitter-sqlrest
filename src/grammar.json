@@ -568,14 +568,14 @@
       "type": "IMMEDIATE_TOKEN",
       "content": {
         "type": "PATTERN",
-        "value": "[A-Za-z0-9_ ]+"
+        "value": "[\\p{L}0-9_ ]+"
       }
     },
     "STRING_WITH_WILDCARDS": {
       "type": "IMMEDIATE_TOKEN",
       "content": {
         "type": "PATTERN",
-        "value": "[A-Za-z0-9_* ]+"
+        "value": "[\\p{L}0-9_* ]+"
       }
     },
     "DOUBLE_QUOTED_STRING": {
@@ -606,7 +606,7 @@
           "type": "IMMEDIATE_TOKEN",
           "content": {
             "type": "PATTERN",
-            "value": "[A-Za-z0-9_ :,\\.\\(\\)]+"
+            "value": "[\\p{L}0-9_ :,\\.\\(\\)]+"
           }
         },
         {
@@ -626,7 +626,7 @@
           "type": "IMMEDIATE_TOKEN",
           "content": {
             "type": "PATTERN",
-            "value": "[A-Za-z0-9_* :,\\.\\(\\)]+"
+            "value": "[\\p{L}0-9_* :,\\.\\(\\)]+"
           }
         },
         {
