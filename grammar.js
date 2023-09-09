@@ -33,6 +33,15 @@ module.exports = grammar({
                                                          $.cast))),
 
         order: $ => seq('order=',
+                        $.order_col,
+                        repeat(seq(',',
+                                   $.order_col))),
+
+        order_col: $ => seq($.column,
+                            optional(seq('.',
+                                         $.ordering))),
+
+        order: $ => seq('order=',
                         $.column,
                         optional(seq('.',
                                      $.ordering)),
